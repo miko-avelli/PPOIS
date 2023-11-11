@@ -1,1 +1,3 @@
-
+Recent changes:
+Functions: addElement, deleteElement, addNestedMultiset, removeNestedMultiset - changed type to boolean, added exception throw.
+Functions: formFromString, formFromArray - reduced code size by splitting into several functions.
