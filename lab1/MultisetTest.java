@@ -16,7 +16,7 @@ public class MultisetTest {
         Assertions.assertTrue(ms.deleteElement("a"));
         Assertions.assertEquals(ms.toString(), "{a, b}");
         try {
-            Assertions.assertTrue(ms.deleteElement("c"));
+            Assertions.assertFalse(ms.deleteElement("c"));
         } catch (IllegalArgumentException e) {
             Assertions.assertEquals("Element doesn't exists", e.getMessage());
         }
@@ -41,7 +41,7 @@ public class MultisetTest {
         Assertions.assertTrue(ms.removeNestedMultiset(nms1));
 
         try {
-            Assertions.assertTrue(ms.removeNestedMultiset(nms2));
+            Assertions.assertFalse(ms.removeNestedMultiset(nms2));
         } catch (IllegalArgumentException e) {
             Assertions.assertEquals("Nested multiset doesn't exists", e.getMessage());
         }
@@ -143,7 +143,7 @@ public class MultisetTest {
     }
 
     @Test
-    void testDifference(){
+    void testDifference() {
         Multiset ms1 = new Multiset();
         String string1 = "a,b,{x,y}";
         ms1.formFromString(string1);

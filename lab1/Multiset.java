@@ -12,40 +12,22 @@ public class Multiset {
     }
 
     public boolean addElement(Object element) {
-        try {
-            elements.add(element);
-            return true;
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Invalid argument type");
-        }
+        return elements.add(element);
     }
 
     public boolean deleteElement(Object element) {
         if (elements.contains(element)) {
-            elements.remove(element);
-            return true;
-        } else {
-            throw new IllegalArgumentException("Element doesn't exists");
+            return elements.remove(element);
         }
+        return false;
     }
 
     public boolean addNestedMultiset(Multiset nestedMultiset) {
-        try {
-            elements.add(nestedMultiset);
-            return true;
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Invalid argument type");
-        }
-
+        return elements.add(nestedMultiset);
     }
 
     public boolean removeNestedMultiset(Multiset nestedMultiset) {
-        if (elements.contains(nestedMultiset)) {
-            elements.remove(nestedMultiset);
-            return true;
-        } else {
-            throw new IllegalArgumentException("Nested multiset doesn't exists");
-        }
+        return elements.remove(nestedMultiset);
     }
 
     public boolean isEmpty() {
